@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acte index{% endblock %}
+
+{% block body %}
+    <h1>Acte index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Motif</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acte in actes %}
+            <tr>
+                <td>{{ acte.id }}</td>
+                <td>{{ acte.motif }}</td>
+                <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}">show</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('patient_index') }}">retour à la liste</a>
+{% endblock %}
