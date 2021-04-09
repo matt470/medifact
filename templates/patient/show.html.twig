@@ -25,14 +25,83 @@
             </tr>
         </tbody>
     </table>
+            
+    <hr>
+    
+    <h2>Les actes du patient</h2>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Motif</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for acte in actes %}
+            <tr>
+                <td>{{ acte.id }}</td>
+                <td>{{ acte.motif }}</td>
+                <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}">show</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <hr>
+    
+    <h2>Les factures du patient</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descriptif</th>
+                <th>Tarif</th>
+                <th>Paye</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for facture in factures %}
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.descriptif }}</td>
+                <td>{{ facture.tarif }}</td>
+                <td>{{ facture.paye }}</td>
+                <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}">show</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+    <h2>Suivi du patient</h2>
+    
+    <p>Reste dû : {{ sommeTarif - sommePaye }} euros</p>
 
     <a href="{{ path('patient_index') }}">retour à la liste</a>
 
     <a href="{{ path('patient_edit', {'id': patient.id}) }}">modifier</a>
     
     <a href="{{ path('acte_new', {'patient_id': patient.id}) }}">Créer Acte</a>
-
-    <a href="{{ path('actes', {'patient_id': patient.id}) }}">Voir Acte</a>
     
     {{ include('patient/_delete_form.html.twig') }}
 {% endblock %}

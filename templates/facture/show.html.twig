@@ -24,15 +24,16 @@
                 <td>{{ facture.paye }}</td>
             </tr>
             <tr>
-                <th>Reste</th>
-                <td>{{ facture.reste }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
                 <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
+    
+    <hr>
+    
+    <h2>Suivi de la facture</h2>
+    <p>Reste dû : {{ facture.tarif - facture.paye }} euros.</p>
     
     <a href="{{ path('patient_index') }}">retour à la liste</a>
 

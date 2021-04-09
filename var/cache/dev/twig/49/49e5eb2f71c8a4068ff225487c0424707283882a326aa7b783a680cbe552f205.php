@@ -118,34 +118,35 @@ class __TwigTemplate_eb9d9a0d7b6ec30e503db9590487a6884008d712393b5d613af3daaa84c
         echo "</td>
             </tr>
             <tr>
-                <th>Reste</th>
-                <td>";
-        // line 28
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 28, $this->source); })()), "reste", [], "any", false, false, false, 28), "html", null, true);
-        echo "</td>
-            </tr>
-            <tr>
                 <th>Date</th>
                 <td>";
-        // line 32
-        ((twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 32, $this->source); })()), "date", [], "any", false, false, false, 32)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 32, $this->source); })()), "date", [], "any", false, false, false, 32), "Y-m-d"), "html", null, true))) : (print ("")));
+        // line 28
+        ((twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 28, $this->source); })()), "date", [], "any", false, false, false, 28)) ? (print (twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 28, $this->source); })()), "date", [], "any", false, false, false, 28), "Y-m-d"), "html", null, true))) : (print ("")));
         echo "</td>
             </tr>
         </tbody>
     </table>
     
+    <hr>
+    
+    <h2>Suivi de la facture</h2>
+    <p>Reste dû : ";
+        // line 36
+        echo twig_escape_filter($this->env, (twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 36, $this->source); })()), "tarif", [], "any", false, false, false, 36) - twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 36, $this->source); })()), "paye", [], "any", false, false, false, 36)), "html", null, true);
+        echo " euros.</p>
+    
     <a href=\"";
-        // line 37
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("patient_index");
         echo "\">retour à la liste</a>
 
     <a href=\"";
-        // line 39
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 39, $this->source); })()), "id", [], "any", false, false, false, 39)]), "html", null, true);
+        // line 40
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_edit", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["facture"]) || array_key_exists("facture", $context) ? $context["facture"] : (function () { throw new RuntimeError('Variable "facture" does not exist.', 40, $this->source); })()), "id", [], "any", false, false, false, 40)]), "html", null, true);
         echo "\">edit</a>
 
     ";
-        // line 41
+        // line 42
         echo twig_include($this->env, $context, "facture/_delete_form.html.twig");
         echo "
 ";
@@ -169,7 +170,7 @@ class __TwigTemplate_eb9d9a0d7b6ec30e503db9590487a6884008d712393b5d613af3daaa84c
 
     public function getDebugInfo()
     {
-        return array (  149 => 41,  144 => 39,  139 => 37,  131 => 32,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  150 => 42,  145 => 40,  140 => 38,  135 => 36,  124 => 28,  117 => 24,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -200,15 +201,16 @@ class __TwigTemplate_eb9d9a0d7b6ec30e503db9590487a6884008d712393b5d613af3daaa84c
                 <td>{{ facture.paye }}</td>
             </tr>
             <tr>
-                <th>Reste</th>
-                <td>{{ facture.reste }}</td>
-            </tr>
-            <tr>
                 <th>Date</th>
                 <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
             </tr>
         </tbody>
     </table>
+    
+    <hr>
+    
+    <h2>Suivi de la facture</h2>
+    <p>Reste dû : {{ facture.tarif - facture.paye }} euros.</p>
     
     <a href=\"{{ path('patient_index') }}\">retour à la liste</a>
 

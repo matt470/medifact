@@ -6,6 +6,7 @@ use App\Entity\Patient;
 use App\Form\PatientType;
 use App\Repository\PatientRepository;
 use App\Repository\ActeRepository;
+use App\Repository\FactureRepository;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,8 +58,21 @@ class PatientController extends AbstractController
      */
     public function show(Patient $patient): Response
     {
+        $actes      = $patient->getActes();
+        $factures   = $patient->getFactures();
+        $sommeTarif =null;
+        $sommePaye  =null;
+       
+        foreach ($factures as $facture) {
+            $sommeTarif += $facture->getTarif();
+            $sommePaye  += $facture->getPaye();
+        }
         return $this->render('patient/show.html.twig', [
-            'patient' => $patient,
+            'patient'    => $patient,
+            'actes'      => $actes,
+            'factures'   => $factures,
+            'sommeTarif' => $sommeTarif,
+            'sommePaye'  => $sommePaye,
         ]);
     }
 
