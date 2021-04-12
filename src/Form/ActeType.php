@@ -13,7 +13,7 @@ class ActeType extends AbstractType
     {
         $builder
             ->add('motif')
-            ->add('date')
+            //->add('date')
             //->add('patient')
             //->add('gestionnaire')
             //->add('facture')

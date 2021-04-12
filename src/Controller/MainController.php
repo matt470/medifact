@@ -44,4 +44,30 @@ class MainController extends AbstractController
         ]);
     }
     
+    /**
+     * @Route("/patients-debiteurs", name="patients_debiteurs")
+     */
+    public function patientsDebiteurs(PatientRepository $patientRepository): 
+                                                                      Response {
+        $this->denyAccessUnlessGranted('ROLE_PRATICIEN');
+        $patients = $patientRepository->findAll();
+        $patientsDebiteurs = [];
+        foreach ($patients as $patient) {
+            $factures = $patient->getFactures();
+            $sommeTarif = 0;
+            $sommePaye  = 0;
+            foreach ($factures as $facture) {
+                $sommeTarif += $facture->getTarif();
+                $sommePaye  += $facture->getPaye();
+            }
+            if ($sommeTarif > $sommePaye) {
+                array_push($patientsDebiteurs, $patient);
+            }
+        }
+        
+        return $this->render('patient/debiteurs.html.twig', [
+            'patients' => $patientsDebiteurs,
+        ]);
+    }
+    
 }

@@ -35,6 +35,7 @@ class ActeController extends AbstractController
         $patient_id = $request->query->get('patient_id');
         $patient = $patientRepository->find($patient_id);
         $acte = new Acte();
+        $acte->setDate(new \DateTime('NOW'));
         $acte->setPatient($patient);
         $acte->setGestionnaire($this->getUser());
         $form = $this->createForm(ActeType::class, $acte);

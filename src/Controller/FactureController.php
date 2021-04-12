@@ -36,6 +36,7 @@ class FactureController extends AbstractController
         $acte = $acteRepository->find($acte_id);
         $facture = new Facture();
         $facture->setActe($acte);
+        $facture->setdate(new \DateTime('NOW'));
         $facture->setPatient($acte->getPatient());
         $facture->setGestionnaire($this->getUser());
         $form = $this->createForm(FactureType::class, $facture);

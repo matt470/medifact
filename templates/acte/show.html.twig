@@ -28,9 +28,10 @@
     {% if acte.facture is null %}
         <a href="{{ path('facture_new', {'acte_id': acte.id}) }}">
                                                                Créer facture</a>
-    {% endif %}
-    
-    <a href="{{ path('facture_index', {'acte_id': acte.id}) }}">Voir facture</a>
+    {% else %}
+        <a href="{{ path('facture_index', {'acte_id': acte.id}) }}">
+                                                                Voir facture</a>
+   {% endif %}
    
     {{ include('acte/_delete_form.html.twig') }}
 {% endblock %}

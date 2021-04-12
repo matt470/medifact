@@ -128,16 +128,18 @@ class __TwigTemplate_c673ff6ec94db47953d9390a75a51304145b8ff56e9dfff6d1d9b35c84a
             echo "\">
                                                                Créer facture</a>
     ";
+        } else {
+            // line 32
+            echo "        <a href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_index", ["acte_id" => twig_get_attribute($this->env, $this->source, (isset($context["acte"]) || array_key_exists("acte", $context) ? $context["acte"] : (function () { throw new RuntimeError('Variable "acte" does not exist.', 32, $this->source); })()), "id", [], "any", false, false, false, 32)]), "html", null, true);
+            echo "\">
+                                                                Voir facture</a>
+   ";
         }
-        // line 32
-        echo "    
-    <a href=\"";
-        // line 33
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_index", ["acte_id" => twig_get_attribute($this->env, $this->source, (isset($context["acte"]) || array_key_exists("acte", $context) ? $context["acte"] : (function () { throw new RuntimeError('Variable "acte" does not exist.', 33, $this->source); })()), "id", [], "any", false, false, false, 33)]), "html", null, true);
-        echo "\">Voir facture</a>
-   
-    ";
         // line 35
+        echo "   
+    ";
+        // line 36
         echo twig_include($this->env, $context, "acte/_delete_form.html.twig");
         echo "
 ";
@@ -161,7 +163,7 @@ class __TwigTemplate_c673ff6ec94db47953d9390a75a51304145b8ff56e9dfff6d1d9b35c84a
 
     public function getDebugInfo()
     {
-        return array (  141 => 35,  136 => 33,  133 => 32,  126 => 29,  124 => 28,  119 => 26,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  143 => 36,  140 => 35,  133 => 32,  126 => 29,  124 => 28,  119 => 26,  110 => 20,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -196,9 +198,10 @@ class __TwigTemplate_c673ff6ec94db47953d9390a75a51304145b8ff56e9dfff6d1d9b35c84a
     {% if acte.facture is null %}
         <a href=\"{{ path('facture_new', {'acte_id': acte.id}) }}\">
                                                                Créer facture</a>
-    {% endif %}
-    
-    <a href=\"{{ path('facture_index', {'acte_id': acte.id}) }}\">Voir facture</a>
+    {% else %}
+        <a href=\"{{ path('facture_index', {'acte_id': acte.id}) }}\">
+                                                                Voir facture</a>
+   {% endif %}
    
     {{ include('acte/_delete_form.html.twig') }}
 {% endblock %}

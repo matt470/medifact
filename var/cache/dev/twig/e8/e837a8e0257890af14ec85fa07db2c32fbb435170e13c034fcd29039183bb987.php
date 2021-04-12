@@ -65,7 +65,7 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "MediFacr";
+        echo "MediFact";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -105,16 +105,28 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
             <li><a href=\"";
             // line 18
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("patient_index");
-            echo "\">Liste des patients</a></li>
-        ";
-        } else {
+            echo "\">
+                                                     Liste des patients</a></li>
+            ";
             // line 20
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_PRATICIEN")) {
+                // line 21
+                echo "                <li><a href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("patients_debiteurs");
+                echo "\">
+                                           Liste des patients débiteurs</a></li>
+            ";
+            }
+            // line 24
+            echo "        ";
+        } else {
+            // line 25
             echo "            <li><a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Se connecter</a></li>
         ";
         }
-        // line 22
+        // line 27
         echo "    </ul>
 </div>
 ";
@@ -138,14 +150,14 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
 
     public function getDebugInfo()
     {
-        return array (  118 => 22,  112 => 20,  107 => 18,  102 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  130 => 27,  124 => 25,  121 => 24,  114 => 21,  112 => 20,  107 => 18,  102 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}MediFacr{% endblock %}
+{% block title %}MediFact{% endblock %}
 
 {% block body %}
 <style>
@@ -160,7 +172,12 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
     <ul>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <li><a href=\"{{ path('app_logout') }}\">Se déconnecter</a></li>
-            <li><a href=\"{{ path('patient_index') }}\">Liste des patients</a></li>
+            <li><a href=\"{{ path('patient_index') }}\">
+                                                     Liste des patients</a></li>
+            {% if is_granted('ROLE_PRATICIEN') %}
+                <li><a href=\"{{ path('patients_debiteurs') }}\">
+                                           Liste des patients débiteurs</a></li>
+            {% endif %}
         {% else %}
             <li><a href=\"{{ path('app_login') }}\">Se connecter</a></li>
         {% endif %}

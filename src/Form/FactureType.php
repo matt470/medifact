@@ -15,7 +15,7 @@ class FactureType extends AbstractType
             ->add('descriptif')
             ->add('tarif')
             ->add('paye')
-            ->add('date')
+            //->add('date')
             //->add('patient')
             //->add('gestionnaire')
             //->add('acte')

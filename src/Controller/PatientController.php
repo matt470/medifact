@@ -110,4 +110,6 @@ class PatientController extends AbstractController
         return $this->redirectToRoute('patient_index');
     }
     
+    
+    
 }
