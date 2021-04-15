@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => '5c212c3fd736032daf79997b59e457f8c06f6a61',
+    'reference' => '7552e01007850e583879280209e2ecd5ff516ce5',
     'name' => '__root__',
   ),
   'versions' => 
   array (
     '__root__' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => '5c212c3fd736032daf79997b59e457f8c06f6a61',
+      'reference' => '7552e01007850e583879280209e2ecd5ff516ce5',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -320,6 +320,15 @@
       array (
       ),
       'reference' => '8ef75e99f20332f2725587896364f7079b53de95',
+    ),
+    'symfony/asset' => 
+    array (
+      'pretty_version' => 'v5.2.4',
+      'version' => '5.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '54a42aa50f9359d1184bf7e954521b45ca3d5828',
     ),
     'symfony/cache' => 
     array (
@@ -785,6 +794,15 @@
       array (
       ),
       'reference' => '4b28c24db64156ad892300be7fae1978bed075ce',
+    ),
+    'symfony/webpack-encore-bundle' => 
+    array (
+      'pretty_version' => 'v1.11.1',
+      'version' => '1.11.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '395b60a549ded8e7f77f0d551815d7555e2d9eb0',
     ),
     'symfony/yaml' => 
     array (
