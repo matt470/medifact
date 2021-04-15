@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\PatientRepository;
 use App\Repository\ActeRepository;
+use App\Repository\FactureRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -50,6 +51,7 @@ class MainController extends AbstractController
     public function patientsDebiteurs(PatientRepository $patientRepository): 
                                                                       Response {
         $this->denyAccessUnlessGranted('ROLE_PRATICIEN');
+        
         $patients = $patientRepository->findAll();
         $patientsDebiteurs = [];
         foreach ($patients as $patient) {
@@ -67,6 +69,26 @@ class MainController extends AbstractController
         
         return $this->render('patient/debiteurs.html.twig', [
             'patients' => $patientsDebiteurs,
+        ]);
+    }
+    
+    /**
+     * @Route("/Chiffre-affaire", name="chiffre_affaire")
+     */
+    public function chiffreAffaire(FactureRepository $factureRepository) : 
+                                                                      Response {
+        $this->denyAccessUnlessGranted('ROLE_PRATICIEN');
+        
+        $annee = date("Y");
+        $factures = $factureRepository->findByYear($annee);
+        $chiffreAffaire = 0;
+        foreach ($factures as $facture) {
+            $chiffreAffaire += $facture->getPaye();    
+        }
+        
+        return $this->render('index/chiffre-affaire.html.twig', [
+            'factures'        => $factures,
+            'chiffre_affaire' => $chiffreAffaire,
         ]);
     }
     

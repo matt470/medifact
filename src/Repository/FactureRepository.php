@@ -47,4 +47,22 @@ class FactureRepository extends ServiceEntityRepository
         ;
     }
     */
+    
+    // /**
+    //  * @return Facture[] Returns an array of Facture objects on year N.
+    //  */
+    public function findByYear(int $annee): array
+    {
+        $entityManager = $this->getEntityManager();
+        $annee = date('Y');
+        $query = $entityManager->createQuery(
+                "SELECT f FROM App\Entity\Facture f
+                WHERE f.date BETWEEN '01/01/".$annee."'
+                AND '01/01/".($annee+1)."'
+                ORDER BY f.date ASC"       
+        );
+        
+        // returns an array of Facture objects
+        return $query->getResult();
+    }
 }

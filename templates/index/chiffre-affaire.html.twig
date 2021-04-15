@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Liste Facture{% endblock %}
+{% block title %}Chiffre d'affaire{% endblock %}
 
 {% block body %}
-    <h1>Liste Facture</h1>
+    <h1>Liste facture de l'année.</h1>
 
     <table class="table">
         <thead>
@@ -33,10 +33,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="7">Aucun enregistrements trouvés</td>
+                <td colspan="7">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+    <h2>Le chiffre d'affaire est de : {{ chiffre_affaire }} euros.</h2>
 <a href="{{ path('patient_index') }}">retour à la liste</a>
 {% endblock %}

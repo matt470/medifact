@@ -100,33 +100,37 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
             // line 17
             echo "            <li><a href=\"";
-            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-            echo "\">Se déconnecter</a></li>
-            <li><a href=\"";
-            // line 18
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("patient_index");
             echo "\">
                                                      Liste des patients</a></li>
             ";
-            // line 20
+            // line 19
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_PRATICIEN")) {
-                // line 21
+                // line 20
                 echo "                <li><a href=\"";
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("patients_debiteurs");
                 echo "\">
                                            Liste des patients débiteurs</a></li>
+                <li><a href=\"";
+                // line 22
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("chiffre_affaire");
+                echo "\">
+                                                      Chiffre d'affaire</a></li>
             ";
             }
-            // line 24
-            echo "        ";
-        } else {
             // line 25
+            echo "            <li><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">Se déconnecter</a></li>
+        ";
+        } else {
+            // line 27
             echo "            <li><a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">Se connecter</a></li>
         ";
         }
-        // line 27
+        // line 29
         echo "    </ul>
 </div>
 ";
@@ -150,7 +154,7 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
 
     public function getDebugInfo()
     {
-        return array (  130 => 27,  124 => 25,  121 => 24,  114 => 21,  112 => 20,  107 => 18,  102 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  134 => 29,  128 => 27,  122 => 25,  116 => 22,  110 => 20,  108 => 19,  102 => 17,  100 => 16,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -171,13 +175,15 @@ class __TwigTemplate_66b015c57130529e023239fe90434b0490324693fb62458881093a07a43
     Suivi des patients dématérialisé :
     <ul>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <li><a href=\"{{ path('app_logout') }}\">Se déconnecter</a></li>
             <li><a href=\"{{ path('patient_index') }}\">
                                                      Liste des patients</a></li>
             {% if is_granted('ROLE_PRATICIEN') %}
                 <li><a href=\"{{ path('patients_debiteurs') }}\">
                                            Liste des patients débiteurs</a></li>
+                <li><a href=\"{{ path('chiffre_affaire') }}\">
+                                                      Chiffre d'affaire</a></li>
             {% endif %}
+            <li><a href=\"{{ path('app_logout') }}\">Se déconnecter</a></li>
         {% else %}
             <li><a href=\"{{ path('app_login') }}\">Se connecter</a></li>
         {% endif %}

@@ -158,11 +158,11 @@ class __TwigTemplate_16a5ee52fa9f5b35c8c4f6110271dbc77558dc30e86ed88518905d2acb5
                     <a href=\"";
             // line 49
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("acte_show", ["id" => twig_get_attribute($this->env, $this->source, $context["acte"], "id", [], "any", false, false, false, 49)]), "html", null, true);
-            echo "\">show</a>
+            echo "\">Voir</a>
                     <a href=\"";
             // line 50
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("acte_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["acte"], "id", [], "any", false, false, false, 50)]), "html", null, true);
-            echo "\">edit</a>
+            echo "\">Modifier</a>
                 </td>
             </tr>
         ";
@@ -264,12 +264,12 @@ $context["facture"], "tarif", [], "any", false, false, false, 90), twig_get_attr
             // line 98
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_show", ["id" => twig_get_attribute($this->env, $this->source, $context["facture"], "id", [], "any", false, false, false, 98)]), "html", null, true);
             echo "\">
-                                                                        show</a>
+                                                                        Voir</a>
                     <a href=\"";
             // line 100
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["facture"], "id", [], "any", false, false, false, 100)]), "html", null, true);
             echo "\">
-                                                                        edit</a>
+                                                                        Modifier</a>
                 </td>
             </tr>
         ";
@@ -390,8 +390,8 @@ $context["facture"], "tarif", [], "any", false, false, false, 90), twig_get_attr
                 <td>{{ acte.motif }}</td>
                 <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href=\"{{ path('acte_show', {'id': acte.id}) }}\">show</a>
-                    <a href=\"{{ path('acte_edit', {'id': acte.id}) }}\">edit</a>
+                    <a href=\"{{ path('acte_show', {'id': acte.id}) }}\">Voir</a>
+                    <a href=\"{{ path('acte_edit', {'id': acte.id}) }}\">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -440,9 +440,9 @@ $context["facture"], "tarif", [], "any", false, false, false, 90), twig_get_attr
                 {% endif %}
                 <td>
                     <a href=\"{{ path('facture_show', {'id': facture.id}) }}\">
-                                                                        show</a>
+                                                                        Voir</a>
                     <a href=\"{{ path('facture_edit', {'id': facture.id}) }}\">
-                                                                        edit</a>
+                                                                        Modifier</a>
                 </td>
             </tr>
         {% else %}

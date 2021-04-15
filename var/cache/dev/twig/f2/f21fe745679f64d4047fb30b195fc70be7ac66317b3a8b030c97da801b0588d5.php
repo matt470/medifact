@@ -47,7 +47,7 @@ class __TwigTemplate_b24d3e6f5a64ced6f2ef180ce071cd39c4869a1f43b068f0a1c41158b49
         // line 2
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken(("delete" . twig_get_attribute($this->env, $this->source, (isset($context["acte"]) || array_key_exists("acte", $context) ? $context["acte"] : (function () { throw new RuntimeError('Variable "acte" does not exist.', 2, $this->source); })()), "id", [], "any", false, false, false, 2))), "html", null, true);
         echo "\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Supprimer</button>
 </form>
 ";
         
@@ -77,7 +77,7 @@ class __TwigTemplate_b24d3e6f5a64ced6f2ef180ce071cd39c4869a1f43b068f0a1c41158b49
     {
         return new Source("<form method=\"post\" action=\"{{ path('acte_delete', {'id': acte.id}) }}\" onsubmit=\"return confirm('Are you sure you want to delete this item?');\">
     <input type=\"hidden\" name=\"_token\" value=\"{{ csrf_token('delete' ~ acte.id) }}\">
-    <button class=\"btn\">Delete</button>
+    <button class=\"btn\">Supprimer</button>
 </form>
 ", "acte/_delete_form.html.twig", "/home/csp56/medifact/templates/acte/_delete_form.html.twig");
     }

@@ -21,6 +21,7 @@ return [
         '/patient/actes' => [[['_route' => 'actes', '_controller' => 'App\\Controller\\MainController::actes'], null, null, null, false, false, null]],
         '/patient/acte/facture' => [[['_route' => 'facture_acte', '_controller' => 'App\\Controller\\MainController::facture_acte'], null, null, null, false, false, null]],
         '/patients-debiteurs' => [[['_route' => 'patients_debiteurs', '_controller' => 'App\\Controller\\MainController::patientsDebiteurs'], null, null, null, false, false, null]],
+        '/Chiffre-affaire' => [[['_route' => 'chiffre_affaire', '_controller' => 'App\\Controller\\MainController::chiffreAffaire'], null, null, null, false, false, null]],
         '/patient' => [[['_route' => 'patient_index', '_controller' => 'App\\Controller\\PatientController::index'], null, ['GET' => 0], null, true, false, null]],
         '/patient/new' => [[['_route' => 'patient_new', '_controller' => 'App\\Controller\\PatientController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],

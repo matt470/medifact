@@ -131,7 +131,7 @@ class __TwigTemplate_c673ff6ec94db47953d9390a75a51304145b8ff56e9dfff6d1d9b35c84a
         } else {
             // line 32
             echo "        <a href=\"";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_index", ["acte_id" => twig_get_attribute($this->env, $this->source, (isset($context["acte"]) || array_key_exists("acte", $context) ? $context["acte"] : (function () { throw new RuntimeError('Variable "acte" does not exist.', 32, $this->source); })()), "id", [], "any", false, false, false, 32)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("facture_acte", ["acte_id" => twig_get_attribute($this->env, $this->source, (isset($context["acte"]) || array_key_exists("acte", $context) ? $context["acte"] : (function () { throw new RuntimeError('Variable "acte" does not exist.', 32, $this->source); })()), "id", [], "any", false, false, false, 32)]), "html", null, true);
             echo "\">
                                                                 Voir facture</a>
    ";
@@ -199,7 +199,7 @@ class __TwigTemplate_c673ff6ec94db47953d9390a75a51304145b8ff56e9dfff6d1d9b35c84a
         <a href=\"{{ path('facture_new', {'acte_id': acte.id}) }}\">
                                                                Créer facture</a>
     {% else %}
-        <a href=\"{{ path('facture_index', {'acte_id': acte.id}) }}\">
+        <a href=\"{{ path('facture_acte', {'acte_id': acte.id}) }}\">
                                                                 Voir facture</a>
    {% endif %}
    

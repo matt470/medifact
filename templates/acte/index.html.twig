@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Acte index{% endblock %}
+{% block title %}Liste des actes{% endblock %}
 
 {% block body %}
-    <h1>Acte index</h1>
+    <h1>Liste des actes</h1>
 
     <table class="table">
         <thead>
@@ -21,13 +21,13 @@
                 <td>{{ acte.motif }}</td>
                 <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('acte_show', {'id': acte.id}) }}">show</a>
-                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">edit</a>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}">Voir</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="4">Pas d'enregistrement trouvé</td>
             </tr>
         {% endfor %}
         </tbody>

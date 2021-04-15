@@ -46,8 +46,8 @@
                 <td>{{ acte.motif }}</td>
                 <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('acte_show', {'id': acte.id}) }}">show</a>
-                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">edit</a>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}">Voir</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -96,9 +96,9 @@
                 {% endif %}
                 <td>
                     <a href="{{ path('facture_show', {'id': facture.id}) }}">
-                                                                        show</a>
+                                                                        Voir</a>
                     <a href="{{ path('facture_edit', {'id': facture.id}) }}">
-                                                                        edit</a>
+                                                                        Modifier</a>
                 </td>
             </tr>
         {% else %}

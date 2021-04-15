@@ -65,7 +65,7 @@ class __TwigTemplate_1396bad3821232c32b8c806e75c4c650cc37c96446969a91f2ac7ce4de1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Facture index";
+        echo "Liste Facture";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,7 +85,7 @@ class __TwigTemplate_1396bad3821232c32b8c806e75c4c650cc37c96446969a91f2ac7ce4de1
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Facture index</h1>
+        echo "    <h1>Liste Facture</h1>
 
     <table class=\"table\">
         <thead>
@@ -149,7 +149,7 @@ class __TwigTemplate_1396bad3821232c32b8c806e75c4c650cc37c96446969a91f2ac7ce4de1
         if (!$context['_iterated']) {
             // line 35
             echo "            <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">Aucun enregistrements trouvés</td>
             </tr>
         ";
         }
@@ -191,10 +191,10 @@ class __TwigTemplate_1396bad3821232c32b8c806e75c4c650cc37c96446969a91f2ac7ce4de1
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Facture index{% endblock %}
+{% block title %}Liste Facture{% endblock %}
 
 {% block body %}
-    <h1>Facture index</h1>
+    <h1>Liste Facture</h1>
 
     <table class=\"table\">
         <thead>
@@ -224,7 +224,7 @@ class __TwigTemplate_1396bad3821232c32b8c806e75c4c650cc37c96446969a91f2ac7ce4de1
             </tr>
         {% else %}
             <tr>
-                <td colspan=\"7\">no records found</td>
+                <td colspan=\"7\">Aucun enregistrements trouvés</td>
             </tr>
         {% endfor %}
         </tbody>

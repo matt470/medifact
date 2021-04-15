@@ -29,6 +29,7 @@ return [
     'actes' => [[], ['_controller' => 'App\\Controller\\MainController::actes'], [], [['text', '/patient/actes']], [], []],
     'facture_acte' => [[], ['_controller' => 'App\\Controller\\MainController::facture_acte'], [], [['text', '/patient/acte/facture']], [], []],
     'patients_debiteurs' => [[], ['_controller' => 'App\\Controller\\MainController::patientsDebiteurs'], [], [['text', '/patients-debiteurs']], [], []],
+    'chiffre_affaire' => [[], ['_controller' => 'App\\Controller\\MainController::chiffreAffaire'], [], [['text', '/Chiffre-affaire']], [], []],
     'patient_index' => [[], ['_controller' => 'App\\Controller\\PatientController::index'], [], [['text', '/patient/']], [], []],
     'patient_new' => [[], ['_controller' => 'App\\Controller\\PatientController::new'], [], [['text', '/patient/new']], [], []],
     'patient_show' => [['id'], ['_controller' => 'App\\Controller\\PatientController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/patient']], [], []],

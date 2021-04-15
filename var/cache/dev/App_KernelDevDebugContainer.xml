@@ -4452,13 +4452,6 @@
         <argument key="facture" type="service" id=".errored..service_locator.U_2fDnU.App\Entity\Facture"/>
       </argument>
     </service>
-    <service id=".errored.oUYp96C" class="App\Controller\FactureRepository"/>
-    <service id=".service_locator.QAM6fn." class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="factureRepository" type="service" id=".errored.oUYp96C"/>
-      </argument>
-    </service>
     <service id=".service_locator.mk9shxU" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4471,7 +4464,7 @@
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.Yo_f2zb" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.X8thNtN" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActeController::delete" type="service" id=".service_locator.kR1hhmI"/>
@@ -4485,7 +4478,8 @@
         <argument key="App\Controller\FactureController::new" type="service" id=".service_locator.TW01dUJ"/>
         <argument key="App\Controller\FactureController::show" type="service" id=".service_locator.U_2fDnU"/>
         <argument key="App\Controller\MainController::actes" type="service" id=".service_locator.TW01dUJ"/>
-        <argument key="App\Controller\MainController::facture_acte" type="service" id=".service_locator.QAM6fn."/>
+        <argument key="App\Controller\MainController::chiffreAffaire" type="service" id=".service_locator.q.tFi0U"/>
+        <argument key="App\Controller\MainController::facture_acte" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController::patientsDebiteurs" type="service" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\PatientController::delete" type="service" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController::edit" type="service" id=".service_locator.mk9shxU"/>
@@ -4509,7 +4503,8 @@
         <argument key="App\Controller\FactureController:new" type="service" id=".service_locator.TW01dUJ"/>
         <argument key="App\Controller\FactureController:show" type="service" id=".service_locator.U_2fDnU"/>
         <argument key="App\Controller\MainController:actes" type="service" id=".service_locator.TW01dUJ"/>
-        <argument key="App\Controller\MainController:facture_acte" type="service" id=".service_locator.QAM6fn."/>
+        <argument key="App\Controller\MainController:chiffreAffaire" type="service" id=".service_locator.q.tFi0U"/>
+        <argument key="App\Controller\MainController:facture_acte" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController:patientsDebiteurs" type="service" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\PatientController:delete" type="service" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController:edit" type="service" id=".service_locator.mk9shxU"/>
@@ -4808,12 +4803,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.Yo_f2zb"/>
+      <argument type="service" id=".service_locator.X8thNtN"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.Yo_f2zb"/>
+      <argument type="service" id=".service_locator.X8thNtN"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5183,7 +5178,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.Yo_f2zb"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.X8thNtN"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.Hllcktv"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>
