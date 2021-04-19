@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Acte</h1>
 
-    <table class="table">
+    <table class="w3-table-all">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -23,13 +23,14 @@
     </table>
 
 
-    <a href="{{ path('acte_edit', {'id': acte.id}) }}">edit</a>
+    <a href="{{ path('acte_edit', {'id': acte.id}) }}" class="w3-btn w3-black">
+                                                                    Modifier</a>
     
     {% if acte.facture is null %}
-        <a href="{{ path('facture_new', {'acte_id': acte.id}) }}">
+        <a href="{{ path('facture_new', {'acte_id': acte.id}) }}" class="w3-btn w3-black">
                                                                Créer facture</a>
     {% else %}
-        <a href="{{ path('facture_acte', {'acte_id': acte.id}) }}">
+        <a href="{{ path('facture_acte', {'acte_id': acte.id}) }}" class="w3-btn w3-black">
                                                                 Voir facture</a>
    {% endif %}
    

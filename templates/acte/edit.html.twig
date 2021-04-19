@@ -6,9 +6,9 @@
     <h1>Modifier Acte</h1>
 
     
-    {{ include('acte/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('acte/_form.html.twig', {'button_label': 'Modifier'}) }}
 
 
     {{ include('acte/_delete_form.html.twig') }}
-    <a href="{{ path('patient_index') }}">retour à la liste</a>
+    <a href="{{ path('patient_index') }}" class="w3-margin w3-black w3-btn">retour à la liste</a>
 {% endblock %}

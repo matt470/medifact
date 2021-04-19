@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1>Liste des patients débiteurs</h1>
-
-    <table class="table">
+    
+    <div class="w3-responsive">
+    <table class="w3-table-all">
         <thead>
             <tr>
                 <th>Id</th>
@@ -23,9 +24,9 @@
                 <td>{{ patient.prenom }}</td>
                 <td>{{ patient.adresse }}</td>
                 <td>
-                    <a href="{{ path('patient_show', {'id': patient.id}) }}">
+                    <a href="{{ path('patient_show', {'id': patient.id}) }}" class="w3-button w3-black">
                                                                         voir</a>
-                    <a href="{{ path('patient_edit', {'id': patient.id}) }}">
+                    <a href="{{ path('patient_edit', {'id': patient.id}) }}" class="w3-button w3-black">
                                                                     modifier</a>
                 </td>
             </tr>
@@ -36,5 +37,6 @@
         {% endfor %}
         </tbody>
     </table>
-
+    </div>
+        
 {% endblock %}

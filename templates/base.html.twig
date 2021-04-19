@@ -3,20 +3,48 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
+            {#{{ encore_entry_link_tags('app') }}#}    
+            <link rel="stylesheet" href="/css/w3.css">
         {% endblock %}
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
+             <script src="/js/script.js"></script> 
         {% endblock %}
     </head>
     <body>
-        <header>
-            <a href="{{ path('index') }}">Accueil</a>
+        
+        <header class="w3-container w3-blue-grey">
+            <h1>MédiFact</h1>
         </header>
+        
+        <nav class="w3-bar w3-black">
+            <a class="w3-bar-item w3-button w3-mobile" href="{{ path('index') }}">Accueil</a>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+              <a class="w3-bar-item w3-button w3-mobile" href="{{ path('patient_index') }}">Liste des patients</a>
+                {% if is_granted('ROLE_PRATICIEN') %}
+                  <a class="w3-bar-item w3-button w3-mobile" href="{{ path('patients_debiteurs') }}">Liste des patients débiteurs</a>
+                  <a class="w3-bar-item w3-button w3-mobile" href="{{ path('chiffre_affaire') }}">Chiffre d'affaire</a>
+                {% endif %}
+              <a class="w3-bar-item w3-button w3-mobile" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% else %}
+              <a class="w3-bar-item w3-button w3-mobile" href="{{ path('app_login') }}">Se connecter</a>
+            {% endif %}
+        </nav>
+        
         {% block body %}{% endblock %}
+        
+        <footer class="w3-container w3-center">
+           <p>
+              &copy; {{ "now"|date("Y") }} Tout droits réservés |
+              <a href="">CGU</a> |
+              <a href="">Mentions légales</a>
+           </p>   
+        </footer>
+              
     </body>
 </html>

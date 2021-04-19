@@ -3,32 +3,11 @@
 {% block title %}MediFact{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="/css/w3.css">
-
-<div class="example-wrapper">
-    <h1>Bienvenue sur MediFact !</h1>
-
-    Suivi des patients dématérialisé :
-    <ul>
-        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-            <li><a href="{{ path('patient_index') }}">
-                                                     Liste des patients</a></li>
-            {% if is_granted('ROLE_PRATICIEN') %}
-                <li><a href="{{ path('patients_debiteurs') }}">
-                                           Liste des patients débiteurs</a></li>
-                <li><a href="{{ path('chiffre_affaire') }}">
-                                                      Chiffre d'affaire</a></li>
-            {% endif %}
-            <li><a href="{{ path('app_logout') }}">Se déconnecter</a></li>
-        {% else %}
-            <li><a href="{{ path('app_login') }}">Se connecter</a></li>
-        {% endif %}
-    </ul>
+<div class="w3-display-container w3-center">
+    <img src="/images/medifact.jpg" style="width:100%">
+    <div class="w3-display-topmiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h2>Suivi dématerialisé des factures médicales</h2>   
+    </div>
 </div>
 {% endblock %}

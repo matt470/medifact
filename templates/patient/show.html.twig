@@ -4,8 +4,7 @@
 
 {% block body %}
     <h1>Patient</h1>
-
-    <table class="table">
+    <table class="w3-table-all">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -16,7 +15,7 @@
                 <td>{{ patient.nom }}</td>
             </tr>
             <tr>
-                <th>Prenom</th>modifier
+                <th>Prenom</th>
                 <td>{{ patient.prenom }}</td>
             </tr>
             <tr>
@@ -30,7 +29,7 @@
     
     <h2>Les actes du patient</h2>
     
-    <table class="table">
+    <table class="w3-table-all">
         <thead>
             <tr>
                 <th>Id</th>
@@ -46,8 +45,8 @@
                 <td>{{ acte.motif }}</td>
                 <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('acte_show', {'id': acte.id}) }}">Voir</a>
-                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">Modifier</a>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}" class="w3-button w3-black">Voir</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}" class="w3-button w3-black">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -61,7 +60,8 @@
     <hr>
     
     <h2>Les factures du patient</h2>
-    <table class="table">
+    <div class="w3-responsive">
+    <table class="w3-table-all">
         <thead>
             <tr>
                 <th>Id</th>
@@ -95,10 +95,9 @@
                 </td>
                 {% endif %}
                 <td>
-                    <a href="{{ path('facture_show', {'id': facture.id}) }}">
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}" class="w3-button w3-black">
                                                                         Voir</a>
-                    <a href="{{ path('facture_edit', {'id': facture.id}) }}">
-                                                                        Modifier</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-button w3-black">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -109,16 +108,19 @@
 
         </tbody>
     </table>
+    </div>
     
     <h2>Suivi du patient</h2>
-    
-    <p>Reste dû : {{ sommeTarif - sommePaye }} euros</p>
+    <div class="w3-row">
+        <div class="w3-container w3-card-4 w3-yellow w3-margin w3-quarter">
+            <p>Reste dû : {{ sommeTarif - sommePaye }} euros</p>
+        </div>
+    </div>
+    <a href="{{ path('patient_index') }}" class="w3-button w3-black">retour à la liste</a>
 
-    <a href="{{ path('patient_index') }}">retour à la liste</a>
-
-    <a href="{{ path('patient_edit', {'id': patient.id}) }}">modifier</a>
+    <a href="{{ path('patient_edit', {'id': patient.id}) }}" class="w3-button w3-black">modifier</a>
     
-    <a href="{{ path('acte_new', {'patient_id': patient.id}) }}">Créer Acte</a>
+    <a href="{{ path('acte_new', {'patient_id': patient.id}) }}" class="w3-button w3-black">Créer Acte</a>
     
     {{ include('patient/_delete_form.html.twig') }}
 {% endblock %}

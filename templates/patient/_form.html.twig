@@ -1,4 +1,9 @@
+<div class="w3-container">
 {{ form_start(form) }}
+    {{ form_row(form.nom, {'attr': {'class': 'w3-input'}}) }}
+    {{ form_row(form.prenom, {'attr': {'class': 'w3-input'}}) }}
+    {{ form_row(form.adresse, {'attr': {'class': 'w3-input'}}) }}
     {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+    <button class="w3-btn w3-blue-gray w3-margin">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
+</div>
