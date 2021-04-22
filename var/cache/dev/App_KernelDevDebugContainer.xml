@@ -20,6 +20,7 @@
       <parameter key="SecurityBundle">Symfony\Bundle\SecurityBundle\SecurityBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -65,6 +66,10 @@
       <parameter key="WebpackEncoreBundle" type="collection">
         <parameter key="path">/home/csp56/medifact/vendor/symfony/webpack-encore-bundle/src</parameter>
         <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="path">/home/csp56/medifact/vendor/knplabs/knp-snappy-bundle/src</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -226,6 +231,12 @@
       <parameter>dev</parameter>
       <parameter>main</parameter>
     </parameter>
+    <parameter key="knp_snappy.pdf.binary">%env(WKHTMLTOPDF_PATH)%</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection"/>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">%env(WKHTMLTOIMAGE_PATH)%</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -4237,6 +4248,24 @@
         <argument key="_default" type="service" id="webpack_encore.entrypoint_lookup[_default]"/>
       </argument>
     </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>%env(WKHTMLTOPDF_PATH)%</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>%env(WKHTMLTOIMAGE_PATH)%</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="logger" on-invalid="ignore"/>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ActeController" class="App\Controller\ActeController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ActeController" class="App\Controller\ActeController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ActeController" class="App\Controller\ActeController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4628,7 +4657,7 @@
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.X8thNtN" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.25.sVqe" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\ActeController::delete" type="service" id=".service_locator.kR1hhmI"/>
@@ -4644,6 +4673,7 @@
         <argument key="App\Controller\MainController::actes" type="service" id=".service_locator.TW01dUJ"/>
         <argument key="App\Controller\MainController::chiffreAffaire" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController::facture_acte" type="service" id=".service_locator.q.tFi0U"/>
+        <argument key="App\Controller\MainController::generate_pdf" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController::patientsDebiteurs" type="service" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\PatientController::delete" type="service" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController::edit" type="service" id=".service_locator.mk9shxU"/>
@@ -4669,6 +4699,7 @@
         <argument key="App\Controller\MainController:actes" type="service" id=".service_locator.TW01dUJ"/>
         <argument key="App\Controller\MainController:chiffreAffaire" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController:facture_acte" type="service" id=".service_locator.q.tFi0U"/>
+        <argument key="App\Controller\MainController:generate_pdf" type="service" id=".service_locator.q.tFi0U"/>
         <argument key="App\Controller\MainController:patientsDebiteurs" type="service" id=".service_locator.XupNM.k"/>
         <argument key="App\Controller\PatientController:delete" type="service" id=".service_locator.mk9shxU"/>
         <argument key="App\Controller\PatientController:edit" type="service" id=".service_locator.mk9shxU"/>
@@ -4967,12 +4998,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.X8thNtN"/>
+      <argument type="service" id=".service_locator.25.sVqe"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.X8thNtN"/>
+      <argument type="service" id=".service_locator.25.sVqe"/>
     </service>
     <service id=".doctrine.orm.default_metadata_driver.inner" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain">
       <call method="addDriver">
@@ -5351,9 +5382,11 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.X8thNtN"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.25.sVqe"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.Hllcktv"/>
     <service id="Psr\Log\LoggerInterface" alias="logger"/>

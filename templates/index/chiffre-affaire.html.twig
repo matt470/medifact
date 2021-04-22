@@ -3,7 +3,7 @@
 {% block title %}Chiffre d'affaire{% endblock %}
 
 {% block body %}
-    <h1>Liste facture de l'année.</h1>
+    <h2>Liste facture de l'année.</h2>
     
     <div class="w3-responsive">
     <table class="w3-table-all">
@@ -42,6 +42,6 @@
         </tbody>
     </table>
     </div>
-    <h2>Le chiffre d'affaire est de : {{ chiffre_affaire }} euros.</h2>
+    <h3>Le chiffre d'affaire est de : {{ chiffre_affaire }} euros.</h3>
 <a href="{{ path('patient_index') }}" class="w3-btn w3-black w3-margin">retour à la liste</a>
 {% endblock %}

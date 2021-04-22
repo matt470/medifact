@@ -3,7 +3,7 @@
 {% block title %}Facture{% endblock %}
 
 {% block body %}
-    <h1>Facture</h1>
+    <h2>Facture</h2>
 
     <div class="w3-responsive">
     <table class="w3-table-all">
@@ -43,6 +43,9 @@
 
     <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
                                                                     Modifier</a>
+                                                                    
+    <a href="{{ path('pdf', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                    Imprimer</a>
     
      <a href="{{ path('patient_index') }}" class="w3-btn w3-margin w3-black">
                                                            retour à la liste</a>

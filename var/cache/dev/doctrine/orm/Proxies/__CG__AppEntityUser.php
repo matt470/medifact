@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'patients', '' . "\0" . 'App\\Entity\\User' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actes'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'patients', '' . "\0" . 'App\\Entity\\User' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'poste'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'patients', '' . "\0" . 'App\\Entity\\User' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actes'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'roles', '' . "\0" . 'App\\Entity\\User' . "\0" . 'password', '' . "\0" . 'App\\Entity\\User' . "\0" . 'patients', '' . "\0" . 'App\\Entity\\User' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actes', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'poste'];
     }
 
     /**
@@ -387,6 +387,72 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeActe', [$acte]);
 
         return parent::removeActe($acte);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getNom(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNom', []);
+
+        return parent::getNom();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setNom(?string $nom): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNom', [$nom]);
+
+        return parent::setNom($nom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPrenom(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPrenom', []);
+
+        return parent::getPrenom();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPrenom(?string $prenom): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrenom', [$prenom]);
+
+        return parent::setPrenom($prenom);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPoste(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPoste', []);
+
+        return parent::getPoste();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setPoste(string $poste): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPoste', [$poste]);
+
+        return parent::setPoste($poste);
     }
 
 }

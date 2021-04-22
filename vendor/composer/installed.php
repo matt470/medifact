@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'fb97499782080f27d3394b04cf5698914132f564',
+    'reference' => 'f40b463bc91ec56ad350fdcf125373f6775eb5a2',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'fb97499782080f27d3394b04cf5698914132f564',
+      'reference' => 'f40b463bc91ec56ad350fdcf125373f6775eb5a2',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -182,6 +182,15 @@
       ),
       'reference' => '56070bebac6e77230ed7d306ad13528e60732871',
     ),
+    'dompdf/dompdf' => 
+    array (
+      'pretty_version' => 'v1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8768448244967a46d6e67b891d30878e0e15d25c',
+    ),
     'friendsofphp/proxy-manager-lts' => 
     array (
       'pretty_version' => 'v1.0.3',
@@ -190,6 +199,24 @@
       array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
+    ),
+    'knplabs/knp-snappy' => 
+    array (
+      'pretty_version' => 'v1.2.1',
+      'version' => '1.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7bac60fb729147b7ccd8532c07df3f52a4afa8a4',
+    ),
+    'knplabs/knp-snappy-bundle' => 
+    array (
+      'pretty_version' => 'v1.8.0',
+      'version' => '1.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0f81887b0379a2731b869289bf3d880f34dfd423',
     ),
     'laminas/laminas-code' => 
     array (
@@ -240,6 +267,24 @@
       array (
         0 => '^2.1',
       ),
+    ),
+    'phenx/php-font-lib' => 
+    array (
+      'pretty_version' => '0.5.2',
+      'version' => '0.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ca6ad461f032145fff5971b5985e5af9e7fa88d8',
+    ),
+    'phenx/php-svg-lib' => 
+    array (
+      'pretty_version' => 'v0.3.3',
+      'version' => '0.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5fa61b65e612ce1ae15f69b3d223cb14ecc60e32',
     ),
     'psr/cache' => 
     array (
@@ -311,6 +356,15 @@
       array (
         0 => '1.0',
       ),
+    ),
+    'sabberworm/php-css-parser' => 
+    array (
+      'pretty_version' => '8.3.1',
+      'version' => '8.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd217848e1396ef962fb1997cf3e2421acba7f796',
     ),
     'sensio/framework-extra-bundle' => 
     array (
@@ -616,6 +670,15 @@
       array (
       ),
       'reference' => 'dc3063ba22c2a1fd2f45ed856374d79114998f91',
+    ),
+    'symfony/process' => 
+    array (
+      'pretty_version' => 'v5.2.4',
+      'version' => '5.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '313a38f09c77fbcdc1d223e57d368cea76a2fd2f',
     ),
     'symfony/property-access' => 
     array (

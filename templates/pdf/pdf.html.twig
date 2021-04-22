@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+    <style>
+        #facture {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #facture td, #facture th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #facture tr:nth-child(even){background-color: #f2f2f2;}
+
+        #facture tr:hover {background-color: #ddd;}
+
+        #facture th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+  </head>
+  <body>
+    <table id="facture">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descriptif</th>
+                <th>Tarif</th>
+                <th>Paye</th>
+                <th>Reste</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ facture.id }}</td>
+                <td>{{ facture.descriptif }}</td>
+                <td>{{ facture.tarif }}</td>
+                <td>{{ facture.paye }}</td>
+                <td>{{ facture.tarif - facture.paye }}</td>
+                <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
+            </tr>
+       
+        </tbody>
+    </table>
+    
+    <p>
+        Facture éditée par {{ facture.gestionnaire.nom }} {{ facture.gestionnaire.prenom }}
+        </br>
+        Profession : {{ facture.gestionnaire.poste }}
+    </p>
+  </body>
+</html>

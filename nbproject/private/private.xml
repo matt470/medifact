@@ -38,6 +38,7 @@
             <file>file:/home/csp56/medifact/src/Form/ActeType.php</file>
             <file>file:/home/csp56/medifact/templates/patient/actes.html.twig</file>
             <file>file:/home/csp56/medifact/templates/patient/_delete_form.html.twig</file>
+            <file>file:/home/csp56/medifact/templates/pdf/pdf.html.twig</file>
             <file>file:/home/csp56/medifact/public/index.php</file>
             <file>file:/home/csp56/medifact/src/Controller/PatientController.php</file>
             <file>file:/home/csp56/medifact/src/Controller/ActeController.php</file>

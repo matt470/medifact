@@ -27,7 +27,10 @@ class UserFixtures extends Fixture
             $user,
             'praticien'
         ));
+        $user->setNom('Robert');
+        $user->setPrenom('Arthur');
         $user->setRoles(['ROLE_PRATICIEN']);
+        $user->setPoste('medecin généraliste');
         $manager->persist($user);
         
         //Admin
@@ -37,7 +40,10 @@ class UserFixtures extends Fixture
             $user2,
             'admin'
         ));
+        $user2->setNom('Singainy');
+        $user2->setPrenom('Matthieu');
         $user2->setRoles(['ROLE_ADMIN']);
+        $user2->setPoste('administrateur');
         $manager->persist($user2);
         
         //Administratif
@@ -47,7 +53,10 @@ class UserFixtures extends Fixture
             $user3,
             'administratif'
         ));
+        $user3->setNom('Delavegas');
+        $user3->setPrenom('Arturo');
         $user3->setRoles(['ROLE_ADMINISTRATIF']);
+        $user->setPoste('Dentiste');
         $manager->persist($user3);
         
         $manager->flush();

@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 /**
  * @Route("/")
@@ -89,6 +91,37 @@ class MainController extends AbstractController
         return $this->render('index/chiffre-affaire.html.twig', [
             'factures'        => $factures,
             'chiffre_affaire' => $chiffreAffaire,
+        ]);
+    }
+    
+    /**
+     * @Route("/pdf", name="pdf")
+     */
+    public function generate_pdf(FactureRepository $factureRepository, Request $request) : Response {
+        
+        $id = $request->query->get('id');
+        $facture = $factureRepository->find($id);
+        $options = new Options();
+        $options->set('defaultFont', 'Roboto');
+
+
+        $dompdf = new Dompdf($options);
+
+        $data = array(
+          'headline'     => 'my headline',
+          'facture'      => $facture,
+        );
+        $html = $this->renderView('pdf/pdf.html.twig', [
+            'headline'     => "Facture numéro: ".$facture->getId(),
+            'facture'      => $facture,
+        ]);
+
+
+        $dompdf->loadHtml($html);
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream("facture.pdf", [
+            "Attachment" => true
         ]);
     }
     

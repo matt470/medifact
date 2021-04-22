@@ -3,7 +3,7 @@
 {% block title %}Liste Facture{% endblock %}
 
 {% block body %}
-    <h1>Liste Facture</h1>
+    <h2>Liste Facture</h2>
     
     <div class="w3-responsive">
     <table class="w3-table-all">
@@ -25,7 +25,7 @@
                 <td>{{ facture.descriptif }}</td>
                 <td>{{ facture.tarif }}</td>
                 <td>{{ facture.paye }}</td>
-                <td>{{ facture.reste }}</td>
+                <td>{{ facture.tarif - facture.paye }}</td>
                 <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('facture_show', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
