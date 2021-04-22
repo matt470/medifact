@@ -66,10 +66,10 @@ class Patient extends \App\Entity\Patient implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'gestionnaire', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'actes'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'gestionnaire', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'actes', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'tel'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'gestionnaire', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'actes'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'adresse', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'gestionnaire', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'factures', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'actes', '' . "\0" . 'App\\Entity\\Patient' . "\0" . 'tel'];
     }
 
     /**
@@ -343,6 +343,28 @@ class Patient extends \App\Entity\Patient implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeActe', [$acte]);
 
         return parent::removeActe($acte);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getTel(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getTel', []);
+
+        return parent::getTel();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setTel(string $tel): \App\Entity\Patient
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setTel', [$tel]);
+
+        return parent::setTel($tel);
     }
 
 }

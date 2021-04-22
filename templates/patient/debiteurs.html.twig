@@ -13,6 +13,7 @@
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Adresse</th>
+                <th>Tel</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{ patient.nom }}</td>
                 <td>{{ patient.prenom }}</td>
                 <td>{{ patient.adresse }}</td>
+                <td>{{ patient.tel }}</td>
                 <td>
                     <a href="{{ path('patient_show', {'id': patient.id}) }}" class="w3-button w3-black">
                                                                         voir</a>

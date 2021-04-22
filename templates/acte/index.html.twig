@@ -4,7 +4,8 @@
 
 {% block body %}
     <h1>Liste des actes</h1>
-
+    
+    <div class="w3-responsive">
     <table class="w3-table-all">
         <thead>
             <tr>
@@ -21,8 +22,10 @@
                 <td>{{ acte.motif }}</td>
                 <td>{{ acte.date ? acte.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('acte_show', {'id': acte.id}) }}">Voir</a>
-                    <a href="{{ path('acte_edit', {'id': acte.id}) }}">Modifier</a>
+                    <a href="{{ path('acte_show', {'id': acte.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                        Voir</a>
+                    <a href="{{ path('acte_edit', {'id': acte.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                    Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -32,6 +35,7 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('patient_index') }}">retour à la liste</a>
+    </div>
+    <a href="{{ path('patient_index') }}" class="w3-btn w3-margin w3-black">
+                                                           retour à la liste</a>
 {% endblock %}

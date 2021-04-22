@@ -5,7 +5,8 @@
 {% block body %}
     <h1>Facture</h1>
 
-    <table class="table">
+    <div class="w3-responsive">
+    <table class="w3-table-all">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -29,15 +30,22 @@
             </tr>
         </tbody>
     </table>
-    
+    </div>
     <hr>
     
     <h2>Suivi de la facture</h2>
-    <p>Reste dû : {{ facture.tarif - facture.paye }} euros.</p>
+    <div class="w3-row">
+        <div class="w3-container w3-card-4 w3-yellow w3-margin w3-quarter">
+            <p>Reste dû : {{ facture.tarif - facture.paye }} euros.</p>
+        </div>
+    </div>
     
-    <a href="{{ path('patient_index') }}">retour à la liste</a>
 
-    <a href="{{ path('facture_edit', {'id': facture.id}) }}">Modifier</a>
+    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                    Modifier</a>
+    
+     <a href="{{ path('patient_index') }}" class="w3-btn w3-margin w3-black">
+                                                           retour à la liste</a>
 
     {{ include('facture/_delete_form.html.twig') }}
 {% endblock %}

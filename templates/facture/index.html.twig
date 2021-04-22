@@ -4,8 +4,9 @@
 
 {% block body %}
     <h1>Liste Facture</h1>
-
-    <table class="table">
+    
+    <div class="w3-responsive">
+    <table class="w3-table-all">
         <thead>
             <tr>
                 <th>Id</th>
@@ -27,8 +28,10 @@
                 <td>{{ facture.reste }}</td>
                 <td>{{ facture.date ? facture.date|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('facture_show', {'id': facture.id}) }}">show</a>
-                    <a href="{{ path('facture_edit', {'id': facture.id}) }}">edit</a>
+                    <a href="{{ path('facture_show', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                        Voir</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-btn w3-margin w3-black">
+                                                                    Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -38,5 +41,7 @@
         {% endfor %}
         </tbody>
     </table>
-<a href="{{ path('patient_index') }}">retour à la liste</a>
+    </div>
+<a href="{{ path('patient_index') }}" class="w3-btn w3-margin w3-black">
+                                                           retour à la liste</a>
 {% endblock %}

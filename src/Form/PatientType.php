@@ -15,6 +15,7 @@ class PatientType extends AbstractType
             ->add('nom')
             ->add('prenom')
             ->add('adresse')
+            ->add('tel')
             //->add('gestionnaire')
         ;
     }

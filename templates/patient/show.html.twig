@@ -22,6 +22,10 @@
                 <th>Adresse</th>
                 <td>{{ patient.adresse }}</td>
             </tr>
+            <tr>
+                <th>Tel</th>
+                <td>{{ patient.tel }}</td>
+            </tr>
         </tbody>
     </table>
             
@@ -97,7 +101,8 @@
                 <td>
                     <a href="{{ path('facture_show', {'id': facture.id}) }}" class="w3-button w3-black">
                                                                         Voir</a>
-                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-button w3-black">Modifier</a>
+                    <a href="{{ path('facture_edit', {'id': facture.id}) }}" class="w3-button w3-black">
+                                                                    Modifier</a>
                 </td>
             </tr>
         {% else %}

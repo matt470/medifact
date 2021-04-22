@@ -51,6 +51,11 @@ class Patient
      */
     private $actes;
 
+    /**
+     * @ORM\Column(type="string", length=20, options={"default":"0"})
+     */
+    private $tel;
+
     public function __construct()
     {
         $this->factures = new ArrayCollection();
@@ -169,4 +174,17 @@ class Patient
 
         return $this;
     }
+
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    public function setTel(string $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
 }
